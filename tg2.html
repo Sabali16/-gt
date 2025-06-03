@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ድርሳነ ሚካኤል - The Story of Moses and the Exodus</title>
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Abyssinica SIL', 'Noto Sans Ethiopic', serif;
+            background-color: #F5F5DC;
+            color: #5D4037;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode {
+            background-color: #222;
+            color: #E0C9A6;
+        }
+
+        .dark-mode .ancient-text {
+            background-color: #333;
+            border-color: #555;
+        }
+
+        /* Header Styles */
+        .site-header {
+            background-color: #800020;
+            color: #FFD700;
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: 3px solid #FFD700;
+        }
+
+        .title {
+            font-size: 2.5rem;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin: 0.5rem 0 0;
+            font-style: italic;
+        }
+
+        .cross-icon {
+            height: 40px;
+            margin-top: 1rem;
+            filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.3));
+        }
+
+        /* Main Content Styles */
+        .content-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .ancient-text {
+            background-color: #FFF9F0;
+            padding: 2rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border: 1px solid #E0C9A6;
+            position: relative;
+        }
+
+        .text-header, .text-footer {
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        .opening-line {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #800020;
+            margin-bottom: 1.5rem;
+        }
+
+        .dark-mode .opening-line {
+            color: #FFD700;
+        }
+
+        .decorative-line {
+            height: 2px;
+            background: linear-gradient(to right, transparent, #800020, transparent);
+            margin: 1.5rem 0;
+        }
+
+        .dark-mode .decorative-line {
+            background: linear-gradient(to right, transparent, #FFD700, transparent);
+        }
+
+        .text-columns {
+            display: flex;
+            gap: 3rem;
+            margin: 2rem 0;
+        }
+
+        .text-column {
+            flex: 1;
+            text-align: justify;
+            hyphens: auto;
+        }
+
+        .source, .author {
+            font-style: italic;
+            color: #666;
+            margin: 0.5rem 0;
+        }
+
+        .dark-mode .source, 
+        .dark-mode .author {
+            color: #AAA;
+        }
+
+        /* Navigation Styles */
+        .text-navigation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 2rem 0;
+            gap: 1rem;
+        }
+
+        .nav-button {
+            background-color: #800020;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .nav-button:hover {
+            background-color: #600018;
+        }
+
+        .chapter-selector select {
+            padding: 0.5rem;
+            border: 1px solid #800020;
+            border-radius: 4px;
+            background-color: #FFF9F0;
+        }
+
+        .dark-mode .chapter-selector select {
+            background-color: #444;
+            color: #EEE;
+            border-color: #FFD700;
+        }
+
+        .reading-tools {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .tool-button {
+            background-color: #800020;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+
+        .tool-button:hover {
+            transform: scale(1.1);
+        }
+
+        /* Drop Cap */
+        .text-column p:first-of-type::first-letter {
+            font-size: 3em;
+            float: left;
+            line-height: 0.8;
+            margin-right: 0.1em;
+            color: #800020;
+            font-weight: bold;
+        }
+
+        .dark-mode .text-column p:first-of-type::first-letter {
+            color: #FFD700;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .text-columns {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+            
+            .reading-tools {
+                bottom: 10px;
+                right: 10px;
+            }
+        }
+
+        /* SVG Cross */
+        .cross-svg {
+            width: 40px;
+            height: 40px;
+            fill: #FFD700;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <h1 class="title">ድርሳነ ሚካኤል</h1>
+            <p class="subtitle">The Story of Moses and the Exodus</p>
+        </div>
+        <div class="header-decoration">
+            <svg class="cross-svg" viewBox="0 0 24 24">
+                <path d="M12,2L15,5H19V9L22,12L19,15V19H15L12,22L9,19H5V15L2,12L5,9V5H9L12,2Z" />
+            </svg>
+        </div>
+    </header>
+
+    <main class="content-container">
+        <article class="ancient-text">
+            <div class="text-header">
+                <p class="opening-line">**በስመ አብ ወወልድ ወመንፈስ ቅዱስ አሐዱ አምላክ አሜን!**</p>
+                <div class="decorative-line"></div>
+            </div>
+            
+            <div class="text-columns">
+                <div class="text-column">
+                    <p>ከረዥም ዘመናት በፊት በግብፅ ውስጥ ሙሴ የሚባል ሕፃን ተወለደ። ለእስራኤል ሕዝብ ነገሩ የከበደበት ወቅት ነበር። የግብፅ ንጉሥ የነበረው ፈርኦን የእስራኤል ሕዝባች ቁጥራቸው እየጨመረ መምጣቱን ፈራ፤ ስለዚህም ክፉ አገዛዝ አደረገ። እስራኤላውያን �ተወለዱትን ወንዶች ልጆች በሙሉ መውሰድ ነበረባቸው።</p>
+                    
+                    <p>የሙሴ እናት ግን ይህንን በልጇ ላይ እንዲደርስ ስላልፈለገች ሙሴን በቅርጫት ውስጥ አስቀመጠችው እና በቀስታ በአባይ ወንዝ ዳር ባሉ ሸንበቆዎች መካከል አስቀመጠችው። የፈርኦን ልጅ የነበረችው በወንዙ እየታጠበች ሳለ የሙሴን የሚያሳዝን ድምፅ ሰማች፣ ሳጥኑንም ወደራሷ ስባ አነሳችው አዘነችለትም።</p>
+                    
+                    <p>በዛችው ቅፅፈት እርሱን ተንከባክባ ለማሳደግ ወሰነች፣ ስለዚህ ሙሴ በእውነት እስራኤላዊው በግብፅ አለቃ በፈርኦን ቤተ መንግስት ውስጥ አደገ። ሙሴ ካደገ በኃላ ፈርኦን በእስራኤላውያን ላይ ምን �ህል ክፉ ነገር እንደሚያደርግ ተመለከተ። ተግተው እንዲሰሩ ይገደዱ፤ ብዙም ጊዜ ይደበደቡ ነበር።</p>
+                    
+                    <p>ይህ ሙሴን ስላበሳጨው አንድ ቀን የእስራኤላውያን ባሪያ እየደበደበ ሳለ ግብፃዊ ዘበኛን ገደለው። ከዚ በኃላ ከግብፅ መውጣት ነበረበት እና ወደ ሩቅ ሀገር ሸሽቶ ለብዙ ዓመታት ኖረ።</p>
+                    
+                    <p>ዳግመኛም የግብፅ ሰዎች እና ፈርኦን እስራኤላውያን ላይ በመከራ ጊዜ መልዕክተኛውን ልኮ ያድናቸው ዘንድ ወደ እግዚአብሄር ጮሁ አመለከቱም። ክርስቶስም ከአብርሃም ከይስሀቅ እና ከያዕቆብ ጋር ያለውን ፅኑ መሀላ አስቦ የቃል ኪዳኑን መልእክተኛ ለሙሴ በደብረ ሲና በደመና አምድ ሆኖ በእፀ ጳጦስ መካከል እየነደደ እንጨቱ በእሳቱ ሳይቃጠል ታየው።</p>
+                </div>
+                
+                <div class="text-column">
+                    <p>ሙሴም ግርማውን ባየ ጊዜ እያደነቀ ነገሩን ይረዳ ዘንድ ወደ ደመናው አምድ ቀረበ። እግዚአብሄርም ሙሴን እንዲህ አለው "የወገኖቼን መከራ አይቼ ጩኸታቸውንም ሰምቼ አድናቸው ዘንድ መጣው እነሆ የእስራኤል ልጆችን ታወጣ ዘንድ ወደ ፈርዖን እልክሃለው" አለው፤ ሙሴም በጣም ፈራ ነገር ግን ሙሴም ከአሮን ጋር ወደ ግብፅ ሄዱ።</p>
+                    
+                    <p>ፈርዖንንም አናገሩት፤ ፈርዖን ግን ፈፅሞ እግዚአብሔርን እንደማያቀውና እስራኤላውያንን እንደማይለቅ አስረግጦ ነገራቸው። እግዚአብሔርም ለሙሴ እና ለአሮን ታምራት የሚያደርጉበትን �ሃይልን ሰጣቸው። አሮን በትሩን ሲጥለው እባብ ሆነ ፤ የግብፅ አስማተኞችም በትሮቻቸው እባብ ሆነ፤ ነገር ግን የአሮን በትር የአስማተኞቹን እባብ ዋጠቻቸው የእግዚአብሔርንም ኃይል እያሳየ እንዲሁም ፈርኦንን ለማሳመን አስር መቅፀፍቆችን ላከ በየቦታው እንቁራሪትቶች፣ ቱሀኖች፣ እና በቀን ውስጥ ጨለማዎች ነበሩ።</p>
+                    
+                    <p>በመጨረሻም ከመጨረሻውና በጣም አሳዛኝ መቅፀፍት በኋላ ፈርኦን እስራኤላውያንን ነፃ ለማውጣት ተስማማ። ሙሴም እስራኤላውያንን ከግብፅ አወጣቸው። ጉዞአቸው ግን አላለቀም፣ እስራኤላውያን በባህሩ �ር በበአል ዛፍ ፊት ለፊት ባለው በፊሀሒሮት አጠገቡ ሰፍረው ባሉ ጊዜ ፈርዖን ሀሳቡን ቀይሮ ከሰራዊቱ ጋር ተከተላቸው።</p>
+                    
+                    <p>ሙሴ ግን ወደ እግዚአብሔር እጁን ዘረጋ። እግዚአብሔርም ያንኑ መልአክ መድኃኒት አድርጎ ላከው፤ ሙሴም ወደ ባህሩ እጁን ዘረጋ፤ የምስራቅ ነፋስን አምጥቶ ባህሩን አስወገደው ባህሩም ደረቀ ውኃውም ተከፍሎ እንደ ግድግዳ ሆነላቸው። ግብፅውያንና ፈርዖን ፈረሶቻቸውን ይዘው ከኋላቸው �ደ ባህሩ ገቡ።</p>
+                    
+                    <p>እግዚአብሔርም በእሳትና በደመና አምድ ሆኖ ግብፃውያንን ተመለከተ በዚያን ጊዜ ወደ ጭንቅም አስገባቸው አወካቸውም። እግዚአብሔርም ሙሴን "እጅህን በባህሩ ላይ ዘርጋ ውኃውም በፈረሰኞቻቸውም ላይ ይመለሳል" አለው። ሙሴም እጁን በባሕሩ ላይ ዘረጋ ባህሩም ወደ መፍሰሱ ተመለሰ። ግብፃውያንም ከእርሱ ሸሹ። እግዚአብሔርም ግብፃውያን በባህሩ መካከል ጣላቸው። �ደ ውኃው የገቡትን የፈርዖን ሰራዊቶች ሁሉ ከደነ ከእነርሱም አንድም አልቀረም።</p>
+                    
+                    <p>በዚያን ጊዜ ሙሴና የእስራኤል ልጆች ሙዝሙር ለእግዚአብሔር ዘመሩ የአሮን እህት ነቢይቱ ማርያምም ከበሮ በእጅዋ ወሰደች። መልአኩም በበረሀ 40 ዓመት ሙሉ መና ከሰማይ እያወረደ መገባቸው።</p>
+                    
+                    <p>እስራኤላውያንን ቀን በደመና ሌሊት በእሳት ብርሃን የመራቸው ውኃውን እንደ ግድግዳ አቁሞ ባህሩን ከፍሎ ያሻገራቸው ከኋላቸው የተከተላቸውን ጠላታቸው ፈርዖንን ከነሠራዊቱ ያሰጠመ ይህ ቅዱስ ሚካኤል ነው!!!</p>
+                </div>
+            </div>
+            
+            <div class="text-footer">
+                <div class="decorative-line"></div>
+                <p class="source">ምንጭ፦ ድርሳነ ሚካኤል ዘወርኃ ሚያዚያ ፤ ኦሪት ዘፀአት</p>
+                <p class="author">በቤተልሔም አፈወርቅ</p>
+            </div>
+        </article>
+    </main>
+
+    <nav class="text-navigation">
+        <button class="nav-button" id="prev-chapter">
+            <span class="icon">←</span> Previous
+        </button>
+        
+        <div class="chapter-selector">
+            <select id="chapter-select">
+                <option value="1">Chapter 1</option>
+                <option value="2">Chapter 2</option>
+                <option value="3">Chapter 3</option>
+            </select>
+        </div>
+        
+        <button class="nav-button" id="next-chapter">
+            Next <span class="icon">→</span>
+        </button>
+    </nav>
+
+    <div class="reading-tools">
+        <button class="tool-button" id="font-increase" title="Increase font size">A+</button>
+        <button class="tool-button" id="font-decrease" title="Decrease font size">A-</button>
+        <button class="tool-button" id="toggle-dark" title="Toggle dark mode">☀</button>
+        <button class="tool-button" id="audio-play" title="Play audio">▶</button>
+    </div>
+
+    <script>
+        // Font size adjustment
+        document.getElementById('font-increase').addEventListener('click', () => {
+            const currentSize = parseFloat(getComputedStyle(document.body).fontSize);
+            document.body.style.fontSize = (currentSize + 1) + 'px';
+        });
+
+        document.getElementById('font-decrease').addEventListener('click', () => {
+            const currentSize = parseFloat(getComputedStyle(document.body).fontSize);
+            if (currentSize > 14) {
+                document.body.style.fontSize = (currentSize - 1) + 'px';
+            }
+        });
+
+        // Dark mode toggle
+        document.getElementById('toggle-dark').addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const icon = document.getElementById('toggle-dark');
+            if (document.body.classList.contains('dark-mode')) {
+                icon.textContent = '☾';
+                icon.title = 'Toggle light mode';
+            } else {
+                icon.textContent = '☀';
+                icon.title = 'Toggle dark mode';
+            }
+        });
+
+        // Audio playback simulation
+        document.getElementById('audio-play').addEventListener('click', function() {
+            alert('Audio playback would start here in a full implementation');
+            this.textContent = this.textContent === '▶' ? '⏸' : '▶';
+        });
+
+        // Chapter navigation
+        document.getElementById('prev-chapter').addEventListener('click', () => {
+            const select = document.getElementById('chapter-select');
+            if (select.selectedIndex > 0) {
+                select.selectedIndex--;
+                alert('Loading previous chapter: ' + select.options[select.selectedIndex].text);
+            }
+        });
+
+        document.getElementById('next-chapter').addEventListener('click', () => {
+            const select = document.getElementById('chapter-select');
+            if (select.selectedIndex < select.options.length - 1) {
+                select.selectedIndex++;
+                alert('Loading next chapter: ' + select.options[select.selectedIndex].text);
+            }
+        });
+
+        document.getElementById('chapter-select').addEventListener('change', (e) => {
+            alert('Loading selected chapter: ' + e.target.options[e.target.selectedIndex].text);
+        });
+    </script>
+</body>
+</html>
